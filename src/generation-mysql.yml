@@ -1,0 +1,58 @@
+# ------------------------------
+# project section - Used for shared variables through out the configuration file
+# ------------------------------
+project:
+  # the root namespace for the project
+  namespace: 'Monitoreo.WebApi'
+  # the root directory for the project
+  directory: ./Monitoreo.WebApi/
+  # output should support nullable reference types
+  nullable: true
+  # use file scoped namespaces
+  fileScopedNamespace: true
+
+# ------------------------------
+# data section - used for configuring database connections
+# ------------------------------
+database:
+  # the connection string to the database
+  connectionString: 'Server=localhost;Port=3306;Database=monitoreo;Uid=root;Password=Anillaco2005.'
+  # the database provider name. Default: SqlServer
+  provider: MySQL
+
+# ------------------------------
+# data section - controls the generated files for Entity Framework
+# ------------------------------
+data:
+  # data context file configuration
+  context:
+    name: 'DataContext' # the data context class name
+    baseClass: DbContext # the data context base class name
+    namespace: '{Project.Namespace}.Data' # the data context namespace
+    directory: '{Project.Directory}/Data' # the data context output directory
+    propertyNaming: Preserve
+
+  # entity class file configuration
+  entity:
+    namespace: '{Project.Namespace}.Data.Entities' # the entity class namespace
+    directory: '{Project.Directory}/Data/Entities' # the entity class output directory
+    entityNaming: Preserve
+    relationshipNaming: Preserve
+
+# ------------------------------
+# mapping class file configuration
+# ------------------------------
+  mapping:
+    namespace: '{Project.Namespace}.Data.Mapping.MY' # the mapping class namespace
+    directory: '{Project.Directory}/Data/Mapping/MY' # the mapping class output directory
+    temporal: false # if temporal table mapping is enabled. Default true
+
+# ------------------------------
+# query extension class file configuration
+# ------------------------------
+  query:
+    generate: true # generate query extension class files
+    indexPrefix: By # Prefix for queries built from an index
+    uniquePrefix: GetBy # Prefix for queries built from unique indexes
+    namespace: '{Project.Namespace}.Data.Queries' # the mapping class namespace
+    directory: '{Project.Directory}/Data/Queries' # the mapping class output directory
